@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    header
+    {
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    #tabla
+    {
+      display: flex;
+      justify-content: space-evenly;
+      margin-top: 20px;
+    }
+    
+    th, td 
+    {
+      border: 1px solid black;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .volver
+    {
+      text-align: center;
+      font-size: 25px;
+      margin-top: 20px;
+    }
+  </style>
+  
+  <head>
+    <title>Datos de {{paisElegido}}</title>
+  </head>
+
+  <body>
+    <header>
+        <h1>Emisiones estimadas de CO2 en {{paisElegido}}</h1>
+        <button onclick="crearTabla({{listaDatos}}, '{{paisElegido}}')">Mostrar datos de {{paisElegido}}</button>
+    </header>
+
+    <article>
+      <section id="tabla">
+        
+      </section>
+      <section class="volver">
+        <a href="https://actividad-4-ejercicio-2-grupo-1.bono-ezequielez.repl.co/">VOLVER</a>
+      </section>
+    </article>
+    
+  </body>
+
+  <script>
+    function crearTabla(listaDatos, paisElegido)
+    {
+      section = document.getElementById('tabla')
+
+      section.innerHTML =
+        `
+          <table id="tablaPaises">
+            <th colspan="3"><h3>Datos registrados sobre ${paisElegido}</h3></th>
+            <tr>
+              <th>Valor</th>
+              <th>Tipo</th>
+              <th>Año en el que se registró el valor</th>
+            </tr>
+          </table>
+        `
+      tabla = document.getElementById('tablaPaises')
+      
+      for(let i = 0 ; i < listaDatos.length ; i++)
+      {
+        tabla.innerHTML +=
+        `
+          <tr>
+            <td>${listaDatos[i][0]}</td>
+            <td>${listaDatos[i][1]}</td>
+            <td>${listaDatos[i][2]}</td>
+          </tr>
+        `
+      }
+    }
+  </script>
+</html>

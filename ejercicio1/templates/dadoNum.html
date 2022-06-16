@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    *
+    {
+      text-align: center;
+    }
+  </style>
+  
+  <head>
+    <title>Cantidad de dados</title>
+  </head>
+
+  <body>
+    <header>
+        <h1>Cantidad de dados</h1>
+    </header>
+
+    <article>
+      <section>
+        
+      </section>
+    </article>
+  </body>
+
+  <script>
+    numeros = {{nums}}
+    
+    section = document.querySelector('section')
+
+    for(let i = 0 ; i < numeros.length ; i++)
+    {
+      section.innerHTML += 
+      `
+        <p>El num°${i+1} es: ${numeros[i]}</p>
+      `
+    }
+      
+  </script>
+</html>

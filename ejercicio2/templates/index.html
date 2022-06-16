@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    header
+    {
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    section
+    {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    ul
+    {
+     text-align: center; 
+    }
+    
+    li
+    {
+      font-size: 20px;
+      list-style: none;
+      margin-top: 15px;
+    }
+  </style>
+  
+  <head>
+    <title>Inicio</title>
+  </head>
+
+  <body>
+    <header>
+        <h1>Emisiones estimadas de CO2</h1>
+    </header>
+
+    <article>
+      <section>
+        <ul>
+          <li><a href="https://actividad-4-ejercicio-2-grupo-1.bono-ezequielez.repl.co/listado">Top 10 per cápita</a></li>
+          <li><a href="https://actividad-4-ejercicio-2-grupo-1.bono-ezequielez.repl.co/top">Top 10 total</a></li>
+          <li id="porPais">
+            <label>Datos del Total y Per cápita de:</label>
+            <select id="nombrePais" onclick="crearOpciones({{listaPaises}})">
+              <option value="null"></option>
+            </select>
+            <button onclick="crearLinkPorPais()">Crear enlace</button>
+          </li>
+          <li><a href="https://actividad-4-ejercicio-2-grupo-1.bono-ezequielez.repl.co/ayuda">Acerca de...</a></li>
+        </ul>
+      </section>
+    </article>
+    
+  </body>
+  <script>
+    primera = false
+    
+    function crearLinkPorPais()
+    {
+      pais = document.getElementById('nombrePais').value
+      const li = document.getElementById('porPais')
+      if(pais != 'null')
+      {
+        li.innerHTML = `<a href="https://actividad-4-ejercicio-2-grupo-1.bono-ezequielez.repl.co/listado/${pais}">Datos del Total y Per cápita de ${pais}</a>`
+      }
+      else
+      {
+        alert("¡Para poder crear el enlace debes seleccionar un país primero!")
+      }
+    }
+    
+    function crearOpciones(listaPaises)
+    {
+      if(primera == false)
+      {
+        select = document.getElementById('nombrePais')
+        select.innerHTML = ''
+        for(let i = 0 ; i < listaPaises.length ; i++)
+        {
+          select.innerHTML += 
+          `
+            <option value="${listaPaises[i]}">${listaPaises[i]}</option>
+          `
+        }
+        primera = true
+      }
+    }
+
+    </script>
+</html>
+
